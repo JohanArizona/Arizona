@@ -8,9 +8,13 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.takehomechallenge.arizona.presentation.screen.auth.LoginScreen
+import com.takehomechallenge.arizona.presentation.screen.auth.SignUpScreen
 import com.takehomechallenge.arizona.presentation.screen.detail.DetailScreen
 import com.takehomechallenge.arizona.presentation.screen.favorite.FavoriteScreen
 import com.takehomechallenge.arizona.presentation.screen.home.HomeScreen
+import com.takehomechallenge.arizona.presentation.screen.profile.EditProfileScreen
+import com.takehomechallenge.arizona.presentation.screen.profile.ProfileScreen
 import com.takehomechallenge.arizona.presentation.screen.search.SearchScreen
 
 @Composable
@@ -33,11 +37,30 @@ fun NavGraph(
             )
         }
 
+        composable(Screen.Profile.route) {
+            ProfileScreen(
+                navController = navController,
+                favoriteListState = favoriteListState
+            )
+        }
+
+        composable(Screen.EditProfile.route) {
+            EditProfileScreen(navController = navController)
+        }
+
         composable(Screen.Favorite.route) {
             FavoriteScreen(
                 navController = navController,
                 listState = favoriteListState
             )
+        }
+
+        composable(Screen.Login.route) {
+            LoginScreen(navController = navController)
+        }
+
+        composable(Screen.SignUp.route) {
+            SignUpScreen(navController = navController)
         }
 
         composable(Screen.Search.route) {

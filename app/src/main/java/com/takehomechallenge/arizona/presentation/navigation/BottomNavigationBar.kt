@@ -1,8 +1,8 @@
 package com.takehomechallenge.arizona.presentation.navigation
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -27,7 +27,7 @@ fun BottomNavigationBar(
     val items = listOf(
         Screen.Home,
         Screen.Search,
-        Screen.Favorite
+        Screen.Profile
     )
 
     NavigationBar(
@@ -42,7 +42,7 @@ fun BottomNavigationBar(
             val icon = when (screen) {
                 Screen.Home -> Icons.Default.Home
                 Screen.Search -> Icons.Default.Search
-                Screen.Favorite -> Icons.Default.Favorite
+                Screen.Profile -> Icons.Default.Person
                 else -> Icons.Default.Home
             }
 
