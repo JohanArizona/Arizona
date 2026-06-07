@@ -26,6 +26,7 @@ class ViewModelTest {
     private val addFavoriteUseCase = mockk<AddFavoriteUseCase>(relaxed = true)
     private val removeFavoriteUseCase = mockk<RemoveFavoriteUseCase>(relaxed = true)
 
+    //ngecek apakah HomeViewModel memuat karakter saat init dengan benar dan menangani kondisi error.
     @Test
     fun `HomeViewModel initial state should load characters successfully`() = runTest {
         // Given
