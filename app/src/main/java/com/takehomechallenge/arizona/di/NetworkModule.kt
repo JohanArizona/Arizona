@@ -29,6 +29,13 @@ object NetworkModule {
     fun provideOkHttpClient(loggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
+            .addInterceptor { chain ->
+                val start = System.currentTimeMillis()
+                val response = chain.proceed(chain.request())
+                val duration = System.currentTimeMillis() - start
+                android.util.Log.d("API_TIME", "${chain.request().url} → ${duration}ms")
+                response
+            }
             .connectTimeout(30, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)
             .writeTimeout(30, TimeUnit.SECONDS)
